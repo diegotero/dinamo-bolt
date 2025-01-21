@@ -19,7 +19,7 @@ import React from 'react';
               <img
                 src="https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logo-dinamo-oscuro-gjKFtXg1VCPx2GBpNIXco1z9Ngm8cI.webp"
                 alt="Dinamo Logo"
-                className="h-8"
+                className="h-[4.5rem]"
               />
             </div>
             <div className="hidden md:flex space-x-8">

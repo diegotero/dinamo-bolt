@@ -33,11 +33,11 @@ import React from 'react';
         >
           {logos.map((client, index) => (
             <SwiperSlide key={index}>
-              <div className="h-32 flex items-center justify-center">
+              <div className="h-48 flex items-center justify-center">
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-20 w-auto object-contain transition-all"
+                  className="max-h-32 w-auto object-contain transition-all"
                 />
               </div>
             </SwiperSlide>
