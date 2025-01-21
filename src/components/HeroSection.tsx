@@ -17,7 +17,7 @@ import React from 'react';
     const HeroSection: React.FC<HeroSectionProps> = ({ colors, clientLogos }) => {
       return (
         <section className="container mx-auto py-20">
-          <div className="max-w-3xl mx-auto px-4">
+          <div className="max-w-3xl mx-auto px-4 text-left">
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               style={{ color: colors.prussianBlue }}
@@ -44,7 +44,7 @@ import React from 'react';
               </button>
             </div>
           </div>
-          <div className="max-w-3xl mx-auto text-center mt-16 px-4">
+          <div className="max-w-3xl mx-auto mt-16 px-4 text-left">
             <h2
               className="text-2xl md:text-3xl font-bold mb-4"
               style={{ color: colors.prussianBlue }}

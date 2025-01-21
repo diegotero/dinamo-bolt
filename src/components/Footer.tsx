@@ -15,7 +15,7 @@ import React from 'react';
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
                 <img
-                  src="https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logo-dinamo-svg%20(2)-UCUnpFdHBqymvYij2yJ7e8Mus3cUXT.svg"
+                  src="https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logo-dinamo-oscuro-gjKFtXg1VCPx2GBpNIXco1z9Ngm8cI.webp"
                   alt="Dinamo Logo"
                   className="h-12 mb-4"
                 />
