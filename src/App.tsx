@@ -18,6 +18,14 @@ import React, { useState } from 'react';
     import 'swiper/css';
     import 'swiper/css/autoplay';
 
+    const colors = {
+      white: '#ffffffff',
+      richBlack: '#00171fff',
+      prussianBlue: '#003459ff',
+      cerulean: '#007ea7ff',
+      pictonBlue: '#00a8e8ff',
+    };
+
     const clientLogos = [
       {
         name: 'Google',
@@ -52,56 +60,60 @@ import React, { useState } from 'react';
     const cardData = [
       {
         title: 'Gestión del Tiempo',
-        icon: <Clock className="w-6 h-6 text-[#2563eb]" />,
+        icon: <Clock className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿La operatoria diaria consume todo tu tiempo?',
         description:
           'Optimizamos tu agenda para que te enfoques en lo estratégico, delegando tareas operativas.',
       },
       {
         title: 'Procesos Empresariales',
-        icon: <Settings className="w-6 h-6 text-[#2563eb]" />,
+        icon: <Settings className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Tus procesos carecen de claridad?',
         description:
           'Definimos y documentamos tus procesos para que sean eficientes y escalables.',
       },
       {
         title: 'Análisis de Resultados',
-        icon: <TrendingDown className="w-6 h-6 text-[#2563eb]" />,
+        icon: (
+          <TrendingDown className="w-6 h-6" style={{ color: colors.cerulean }} />
+        ),
         question: '¿No visualizás claramente los resultados?',
         description:
           'Implementamos tableros de control para que tomes decisiones basadas en datos.',
       },
       {
         title: 'Toma de Decisiones',
-        icon: <Brain className="w-6 h-6 text-[#2563eb]" />,
+        icon: <Brain className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Te sentís solo al momento de decidir?',
         description:
           'Te acompañamos en el proceso de toma de decisiones para que elijas el mejor camino.',
       },
       {
         title: 'Innovación Empresarial',
-        icon: <Diamond className="w-6 h-6 text-[#2563eb]" />,
+        icon: <Diamond className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Tu empresa necesita renovarse?',
         description:
           'Te ayudamos a identificar oportunidades de innovación para que tu empresa se destaque.',
       },
       {
         title: 'Desarrollo Comercial',
-        icon: <DollarSign className="w-6 h-6 text-[#2563eb]" />,
+        icon: <DollarSign className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Necesitás incrementar tus ventas?',
         description:
           'Diseñamos estrategias comerciales efectivas para que aumentes tus ingresos.',
       },
       {
         title: 'Gestión de Equipos',
-        icon: <Users className="w-6 h-6 text-[#2563eb]" />,
+        icon: <Users className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Buscás un equipo más comprometido?',
         description:
           'Desarrollamos líderes y equipos de alto rendimiento para que alcances tus objetivos.',
       },
       {
         title: 'Implementación de Ideas',
-        icon: <Lightbulb className="w-6 h-6 text-[#2563eb]" />,
+        icon: (
+          <Lightbulb className="w-6 h-6" style={{ color: colors.cerulean }} />
+        ),
         question: '¿Tenés muchas ideas pero te cuesta implementarlas?',
         description:
           'Te guiamos en la implementación de tus ideas para que se conviertan en realidad.',
@@ -224,49 +236,56 @@ import React, { useState } from 'react';
     ];
 
     function App() {
-      const [openItems, setOpenItems] = useState<number[]>([]);
+      const [openItem, setOpenItem] = useState<number | null>(null);
 
       const toggleItem = (index: number) => {
-        if (openItems.includes(index)) {
-          setOpenItems(openItems.filter((itemIndex) => itemIndex !== index));
-        } else {
-          setOpenItems([...openItems, index]);
-        }
+        setOpenItem((prevOpenItem) => (prevOpenItem === index ? null : index));
       };
 
       return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <div
+          className="min-h-screen"
+          style={{ background: `linear-gradient(to bottom, ${colors.white}, #f0f0f0)` }}
+        >
           {/* Navigation */}
           <nav className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
-              <div className="text-[#2563eb] text-2xl font-bold">Dinamo</div>
+              <div
+                className="text-2xl font-bold"
+                style={{ color: colors.cerulean }}
+              >
+                Dinamo
+              </div>
               <div className="hidden md:flex space-x-8">
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-[#2563eb] transition"
+                  className="text-gray-600 hover:text-[#007ea7] transition"
                 >
                   Inicio
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-[#2563eb] transition"
+                  className="text-gray-600 hover:text-[#007ea7] transition"
                 >
                   Servicios
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-[#2563eb] transition"
+                  className="text-gray-600 hover:text-[#007ea7] transition"
                 >
                   Equipo
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-[#2563eb] transition"
+                  className="text-gray-600 hover:text-[#007ea7] transition"
                 >
                   Contacto
                 </a>
               </div>
-              <button className="bg-[#2563eb] text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+              <button
+                className="text-white px-6 py-2 rounded-full transition"
+                style={{ backgroundColor: colors.cerulean }}
+              >
                 Contactar
               </button>
             </div>
@@ -275,7 +294,10 @@ import React, { useState } from 'react';
           {/* Hero Section */}
           <section className="container mx-auto px-6 py-20">
             <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold text-[#2563eb] mb-6">
+              <h1
+                className="text-5xl md:text-6xl font-bold mb-6"
+                style={{ color: colors.prussianBlue }}
+              >
                 Transformamos PyMEs hacia su profesionalización
               </h1>
               <p className="text-gray-600 text-xl mb-8">
@@ -284,16 +306,24 @@ import React, { useState } from 'react';
                 efectiva.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-[#2563eb] text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition flex items-center gap-2">
+                <button
+                  className="text-white px-8 py-3 rounded-full transition flex items-center gap-2"
+                  style={{ backgroundColor: colors.cerulean }}
+                >
                   Comenzar ahora <ArrowRight size={20} />
                 </button>
-                <button className="border border-[#2563eb] text-[#2563eb] px-8 py-3 rounded-full hover:bg-indigo-50 transition">
+                <button
+                  className="border border-[#007ea7] text-[#007ea7] px-8 py-3 rounded-full hover:bg-indigo-50 transition"
+                >
                   Ver servicios
                 </button>
               </div>
             </div>
             <div className="max-w-3xl mx-auto text-center mt-16">
-              <h2 className="text-3xl font-bold text-[#2563eb] mb-4">
+              <h2
+                className="text-3xl font-bold mb-4"
+                style={{ color: colors.prussianBlue }}
+              >
                 Clientes que confían en nosotros
               </h2>
               <p className="text-gray-600 text-lg">
@@ -336,7 +366,10 @@ import React, { useState } from 'react';
           {/* Services Section */}
           <section className="container mx-auto px-6 py-16">
             <div className="max-w-5xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold text-[#2563eb] mb-4">
+              <h2
+                className="text-3xl font-bold mb-4"
+                style={{ color: colors.prussianBlue }}
+              >
                 Soluciones integrales para PyMEs
               </h2>
               <p className="text-xl text-gray-600">
@@ -358,7 +391,8 @@ import React, { useState } from 'react';
                   <p className="text-gray-600 mb-6">{card.description}</p>
                   <a
                     href="#"
-                    className="inline-flex items-center text-[#2563eb] hover:gap-2 transition-all"
+                    className="inline-flex items-center transition-all"
+                    style={{ color: colors.cerulean }}
                   >
                     {card.buttonText} <ArrowRight className="ml-2 w-4 h-4" />
                   </a>
@@ -370,7 +404,10 @@ import React, { useState } from 'react';
           {/* Mission Statement */}
           <section className="container mx-auto px-6 py-16 text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2563eb] mb-8">
+              <h2
+                className="text-3xl md:text-4xl font-bold mb-8"
+                style={{ color: colors.prussianBlue }}
+              >
                 Trabajamos codo a codo con nuestros clientes «socios
                 estratégicos»
               </h2>
@@ -383,24 +420,36 @@ import React, { useState } from 'react';
 
           {/* Stats Section */}
           <section className="container mx-auto px-6 py-16">
-            <h2 className="text-2xl text-[#2563eb] mb-12 text-center">
+            <h2
+              className="text-2xl mb-12 text-center"
+              style={{ color: colors.prussianBlue }}
+            >
               Contribuimos en el desarrollo de las PyMEs
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="text-4xl font-bold text-[#2563eb] mb-2">
+                <div
+                  className="text-4xl font-bold mb-2"
+                  style={{ color: colors.cerulean }}
+                >
                   +15
                 </div>
                 <div className="text-gray-600">años de experiencia</div>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="text-4xl font-bold text-[#2563eb] mb-2">
+                <div
+                  className="text-4xl font-bold mb-2"
+                  style={{ color: colors.cerulean }}
+                >
                   +80
                 </div>
                 <div className="text-gray-600">programas implementados</div>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="text-4xl font-bold text-[#2563eb] mb-2">
+                <div
+                  className="text-4xl font-bold mb-2"
+                  style={{ color: colors.cerulean }}
+                >
                   +600
                 </div>
                 <div className="text-gray-600">empresas capacitadas</div>
@@ -411,7 +460,10 @@ import React, { useState } from 'react';
           {/* Testimonials Section */}
           <section className="container mx-auto px-6 py-20 bg-white rounded-3xl my-20">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-bold text-[#2563eb] mb-16 text-center">
+              <h2
+                className="text-4xl font-bold mb-16 text-center"
+                style={{ color: colors.prussianBlue }}
+              >
                 Lo que opinan los clientes sobre nuestros servicios
               </h2>
               <div className="overflow-x-auto whitespace-nowrap py-4">
@@ -427,7 +479,10 @@ import React, { useState } from 'react';
                         className="w-12 h-12 rounded-full object-cover mr-4"
                       />
                       <div>
-                        <h3 className="font-bold text-[#2563eb]">
+                        <h3
+                          className="font-bold"
+                          style={{ color: colors.prussianBlue }}
+                        >
                           {testimonial.name}
                         </h3>
                         <p className="text-gray-600">{testimonial.role}</p>
@@ -445,7 +500,10 @@ import React, { useState } from 'react';
           {/* FAQ Section */}
           <section className="bg-white py-16">
             <div className="container mx-auto px-6">
-              <h2 className="text-3xl font-bold text-[#2563eb] mb-12 text-center">
+              <h2
+                className="text-3xl font-bold mb-12 text-center"
+                style={{ color: colors.prussianBlue }}
+              >
                 Preguntas Frecuentes
               </h2>
               <div className="max-w-4xl mx-auto">
@@ -453,22 +511,27 @@ import React, { useState } from 'react';
                   <div
                     key={index}
                     className={`mb-4 border rounded-md overflow-hidden ${
-                      openItems.includes(index) ? 'bg-[#EAEAEA]' : ''
+                      openItem === index ? 'border-gray-300' : ''
                     }`}
                   >
                     <button
                       className="flex items-center justify-between w-full py-4 px-6 text-left text-gray-800 font-semibold hover:bg-gray-100 transition-colors duration-200"
                       onClick={() => toggleItem(index)}
+                      style={{
+                        backgroundColor: openItem === index ? colors.white : 'transparent',
+                      }}
                     >
                       <span className="text-gray-700">{item.question}</span>
                       <ChevronDown
-                        className={`w-5 h-5 text-[#2563eb] transition-transform duration-200 ${
-                          openItems.includes(index) ? 'rotate-180' : ''
-                        }`}
+                        className={`w-5 h-5 transition-transform duration-200`}
+                        style={{
+                          color: colors.cerulean,
+                          transform: openItem === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                        }}
                       />
                     </button>
-                    {openItems.includes(index) && (
-                      <div className="px-6 py-4 bg-[#EAEAEA] text-gray-600">
+                    {openItem === index && (
+                      <div className="px-6 py-4 text-gray-600 bg-white">
                         {item.answer}
                       </div>
                     )}
@@ -479,7 +542,10 @@ import React, { useState } from 'react';
           </section>
 
           {/* Contact Section */}
-          <section className="bg-[#2563eb] py-20">
+          <section
+            className="py-20"
+            style={{ backgroundColor: colors.cerulean }}
+          >
             <div className="container mx-auto px-6">
               <div className="max-w-2xl mx-auto text-center">
                 <h2 className="text-3xl font-bold text-white mb-6">
@@ -489,7 +555,10 @@ import React, { useState } from 'react';
                   Contactanos para una consulta personalizada y descubrí cómo
                   podemos ayudarte.
                 </p>
-                <button className="bg-white text-[#2563eb] px-8 py-3 rounded-full hover:bg-indigo-50 transition">
+                <button
+                  className="bg-white text-[#007ea7] px-8 py-3 rounded-full hover:bg-indigo-50 transition"
+                  style={{ color: colors.cerulean }}
+                >
                   Contactar ahora
                 </button>
               </div>
@@ -501,7 +570,10 @@ import React, { useState } from 'react';
             <div className="container mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                  <h3 className="text-[#2563eb] text-xl font-bold mb-4">
+                  <h3
+                    className="text-xl font-bold mb-4"
+                    style={{ color: colors.prussianBlue }}
+                  >
                     Dinamo
                   </h3>
                   <p className="text-sm">
@@ -509,12 +581,18 @@ import React, { useState } from 'react';
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-[#2563eb] font-bold mb-4">Servicios</h4>
+                  <h4
+                    className="font-bold mb-4"
+                    style={{ color: colors.prussianBlue }}
+                  >
+                    Servicios
+                  </h4>
                   <ul className="space-y-2 text-sm">
                     <li>
                       <a
                         href="#"
-                        className="hover:text-[#2563eb] transition"
+                        className="hover:text-[#007ea7] transition"
+                        style={{ color: colors.cerulean }}
                       >
                         Consultoría
                       </a>
@@ -522,7 +600,8 @@ import React, { useState } from 'react';
                     <li>
                       <a
                         href="#"
-                        className="hover:text-[#2563eb] transition"
+                        className="hover:text-[#007ea7] transition"
+                        style={{ color: colors.cerulean }}
                       >
                         Capacitación
                       </a>
@@ -530,7 +609,8 @@ import React, { useState } from 'react';
                     <li>
                       <a
                         href="#"
-                        className="hover:text-[#2563eb] transition"
+                        className="hover:text-[#007ea7] transition"
+                        style={{ color: colors.cerulean }}
                       >
                         Selección
                       </a>
@@ -538,12 +618,18 @@ import React, { useState } from 'react';
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-[#2563eb] font-bold mb-4">Empresa</h4>
+                  <h4
+                    className="font-bold mb-4"
+                    style={{ color: colors.prussianBlue }}
+                  >
+                    Empresa
+                  </h4>
                   <ul className="space-y-2 text-sm">
                     <li>
                       <a
                         href="#"
-                        className="hover:text-[#2563eb] transition"
+                        className="hover:text-[#007ea7] transition"
+                        style={{ color: colors.cerulean }}
                       >
                         Sobre nosotros
                       </a>
@@ -551,7 +637,8 @@ import React, { useState } from 'react';
                     <li>
                       <a
                         href="#"
-                        className="hover:text-[#2563eb] transition"
+                        className="hover:text-[#007ea7] transition"
+                        style={{ color: colors.cerulean }}
                       >
                         Equipo
                       </a>
@@ -559,7 +646,8 @@ import React, { useState } from 'react';
                     <li>
                       <a
                         href="#"
-                        className="hover:text-[#2563eb] transition"
+                        className="hover:text-[#007ea7] transition"
+                        style={{ color: colors.cerulean }}
                       >
                         Contacto
                       </a>
@@ -567,7 +655,12 @@ import React, { useState } from 'react';
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-[#2563eb] font-bold mb-4">Contacto</h4>
+                  <h4
+                    className="font-bold mb-4"
+                    style={{ color: colors.prussianBlue }}
+                  >
+                    Contacto
+                  </h4>
                   <ul className="space-y-2 text-sm">
                     <li>info@dinamo.net.ar</li>
                     <li>+54 11 1234-5678</li>
