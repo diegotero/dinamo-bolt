@@ -24,39 +24,87 @@ import React, { useState, useRef } from 'react';
     const colors = {
       white: '#ffffffff',
       richBlack: '#00171fff',
-      prussianBlue: '#003459ff',
-      cerulean: '#007ea7ff',
+      prussianBlue: '#003459',
+      cerulean: '#2563eb',
       pictonBlue: '#00a8e8ff',
+      textGray: '#4b5563',
     };
 
     const clientLogos = [
       {
-        name: 'Google',
-        logo: 'https://es.wikipedia.org/wiki/Archivo:Google_2015_logo.svg',
+        name: 'Arco Iris',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/arco-iris-logo-qigm4otrJAPKK9f57YsLbkhAg12HVj.png',
       },
       {
-        name: 'Amazon',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png',
+        name: 'Auto entrada',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/autoentrada-logo-As8bcgUa34a7GXCwhxqxXTbg0A9xmW.png',
       },
       {
-        name: 'Microsoft',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png',
+        name: 'Ceracor',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/ceracor-revestimientos-GxnWzHOklk3S2blY2kEYwbAmSaIgeD.png',
       },
       {
-        name: 'Apple',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/2048px-Apple_logo_black.svg.png',
+        name: 'Clinica velez sarsfield',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/clinica%20velez%20sarsfield-logo-kTyFpxic5u9EpjnyGjiDB40RViJ2xD.png',
       },
       {
-        name: 'Facebook',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png',
+        name: 'De Hierro',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/dehierro-logo-gkZ4eVCwqMxp88U56ZWHcLtAypuI3a.png',
       },
       {
-        name: 'Tesla',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png',
+        name: 'Feyro',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/feyro-logo-FbOW4BZS68QceBTUKUDfuJ6WuD0TbF.png',
       },
       {
-        name: 'Netflix',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png',
+        name: 'Nobis',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/nobis-logo-73t0fvf7BKcELZjTo14GJSb6aM8x8i.png',
+      },
+      {
+        name: 'GNI',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/gni%20logo-v7bHzKzK055Y4gxidpOFkwOL0AISMe.png',
+      },
+      {
+        name: 'Jambo',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/jambo-logo-s3Ciy53L34LPAjctECoMxJpZgJlEJr.png',
+      },
+      {
+        name: 'Servicios integrales',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/servicios-integrales-logo-oeZugQtKQUDrPRmi81CvJU8YTUgezN.png',
+      },
+      {
+        name: 'Oxala',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/oxala-logo-VbxlHJHbv2IMMOqVTcyDMwCdJCvdan.png',
+      },
+      {
+        name: 'Farmacias Red',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/red-logo-VEctM7LUfUEIVLRWSjsiQKWGkc4wdf.png',
+      },
+      {
+        name: 'Tecnicord',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/tecnicord-logo-1XnGblUvguxZg4NGzrlhrVyRlyq7Nc.png',
+      },
+      {
+        name: 'Panaderia San Alfonso',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/san-alfonso-logo-cmaPdzIuRMFr51QZJgCwxyjLIjOXb7.png',
+      },
+      {
+        name: 'Ormay',
+        logo:
+          'https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logos-clientes/ormay-logo-TULHJNmql1YcIzCowhzilCP6qyKqYB.png',
       },
     ];
 
@@ -268,32 +316,40 @@ import React, { useState, useRef } from 'react';
             <div className="flex items-center justify-between">
               <div
                 className="text-2xl font-bold"
-                style={{ color: colors.cerulean }}
+                style={{ color: colors.prussianBlue }}
               >
-                Dinamo
+                <img
+                  src="https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logo-dinamo-oscuro-gjKFtXg1VCPx2GBpNIXco1z9Ngm8cI.webp"
+                  alt="Dinamo Logo"
+                  className="h-8"
+                />
               </div>
               <div className="hidden md:flex space-x-8">
                 <a
                   href="#"
                   className="text-gray-600 hover:text-[#007ea7] transition"
+                  style={{ color: colors.textGray }}
                 >
                   Inicio
                 </a>
                 <a
                   href="#"
                   className="text-gray-600 hover:text-[#007ea7] transition"
+                  style={{ color: colors.textGray }}
                 >
                   Servicios
                 </a>
                 <a
                   href="#"
                   className="text-gray-600 hover:text-[#007ea7] transition"
+                  style={{ color: colors.textGray }}
                 >
                   Equipo
                 </a>
                 <a
                   href="#"
                   className="text-gray-600 hover:text-[#007ea7] transition"
+                  style={{ color: colors.textGray }}
                 >
                   Contacto
                 </a>
@@ -316,7 +372,7 @@ import React, { useState, useRef } from 'react';
               >
                 Transformamos PyMEs hacia su profesionalización
               </h1>
-              <p className="text-gray-600 text-xl mb-8">
+              <p className="text-gray-600 text-xl mb-8" style={{ color: colors.textGray }}>
                 Ayudamos a las PyMEs a profesionalizarse y crecer mediante
                 consultoría estratégica, selección de talento y capacitación
                 efectiva.
@@ -330,6 +386,7 @@ import React, { useState, useRef } from 'react';
                 </button>
                 <button
                   className="border border-[#007ea7] text-[#007ea7] px-8 py-3 rounded-full hover:bg-indigo-50 transition"
+                  style={{ color: colors.cerulean }}
                 >
                   Ver servicios
                 </button>
@@ -342,7 +399,7 @@ import React, { useState, useRef } from 'react';
               >
                 Clientes que confían en nosotros
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-lg" style={{ color: colors.textGray }}>
                 Estas empresas confiaron en nosotros para el desarrollo de sus
                 negocios.
               </p>
@@ -388,7 +445,7 @@ import React, { useState, useRef } from 'react';
               >
                 Soluciones integrales para PyMEs
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600" style={{ color: colors.textGray }}>
                 Transformamos tu empresa familiar con servicios especializados
               </p>
             </div>
@@ -400,11 +457,11 @@ import React, { useState, useRef } from 'react';
                 >
                   <div className="flex items-center mb-4">
                     <span className="mr-2">{card.icon}</span>
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900" style={{ color: colors.textGray }}>
                       {card.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 mb-6">{card.description}</p>
+                  <p className="text-gray-600 mb-6" style={{ color: colors.textGray }}>{card.description}</p>
                   <a
                     href="#"
                     className="inline-flex items-center transition-all"
@@ -427,7 +484,7 @@ import React, { useState, useRef } from 'react';
                 Trabajamos codo a codo con nuestros clientes «socios
                 estratégicos»
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-gray-600 leading-relaxed" style={{ color: colors.textGray }}>
                 Buscando soluciones a medida en el desarrollo integral de sus
                 negocios
               </p>
@@ -440,13 +497,13 @@ import React, { useState, useRef } from 'react';
                     <div className="absolute top-4 right-4">
                       {card.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2" style={{ color: colors.textGray }}>
                       {card.title}
                     </h3>
-                    <p className="text-gray-700 mb-2 italic">
+                    <p className="text-gray-700 mb-2 italic" style={{ color: colors.textGray }}>
                       {card.question}
                     </p>
-                    <p className="text-gray-600">{card.description}</p>
+                    <p className="text-gray-600" style={{ color: colors.textGray }}>{card.description}</p>
                   </div>
                 ))}
               </div>
@@ -469,7 +526,7 @@ import React, { useState, useRef } from 'react';
                 >
                   +15
                 </div>
-                <div className="text-gray-600">años de experiencia</div>
+                <div className="text-gray-600" style={{ color: colors.textGray }}>años de experiencia</div>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-lg">
                 <div
@@ -478,7 +535,7 @@ import React, { useState, useRef } from 'react';
                 >
                   +80
                 </div>
-                <div className="text-gray-600">programas implementados</div>
+                <div className="text-gray-600" style={{ color: colors.textGray }}>programas implementados</div>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-lg">
                 <div
@@ -487,7 +544,7 @@ import React, { useState, useRef } from 'react';
                 >
                   +600
                 </div>
-                <div className="text-gray-600">empresas capacitadas</div>
+                <div className="text-gray-600" style={{ color: colors.textGray }}>empresas capacitadas</div>
               </div>
             </div>
           </section>
@@ -535,10 +592,10 @@ import React, { useState, useRef } from 'react';
                             >
                               {testimonial.name}
                             </h3>
-                            <p className="text-gray-600">{testimonial.role}</p>
+                            <p className="text-gray-600" style={{ color: colors.textGray }}>{testimonial.role}</p>
                           </div>
                         </div>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-gray-600 leading-relaxed" style={{ color: colors.textGray }}>
                           {testimonial.comment}
                         </p>
                       </div>
@@ -602,7 +659,7 @@ import React, { useState, useRef } from 'react';
                           openItem === index ? colors.white : 'transparent',
                       }}
                     >
-                      <span className="text-gray-700">{item.question}</span>
+                      <span className="text-gray-700" style={{ color: colors.textGray }}>{item.question}</span>
                       <ChevronDown
                         className={`w-5 h-5 transition-transform duration-200`}
                         style={{
@@ -613,7 +670,7 @@ import React, { useState, useRef } from 'react';
                       />
                     </button>
                     {openItem === index && (
-                      <div className="px-6 py-4 text-gray-600 bg-white">
+                      <div className="px-6 py-4 text-gray-600 bg-white" style={{ color: colors.textGray }}>
                         {item.answer}
                       </div>
                     )}
@@ -658,7 +715,7 @@ import React, { useState, useRef } from 'react';
                   >
                     Dinamo
                   </h3>
-                  <p className="text-sm">
+                  <p className="text-sm" style={{ color: colors.textGray }}>
                     Transformando empresas desde 2008
                   </p>
                 </div>
@@ -743,14 +800,14 @@ import React, { useState, useRef } from 'react';
                   >
                     Contacto
                   </h4>
-                  <ul className="space-y-2 text-sm">
+                  <ul className="space-y-2 text-sm" style={{ color: colors.textGray }}>
                     <li>info@dinamo.net.ar</li>
                     <li>+54 11 1234-5678</li>
                     <li>Buenos Aires, Argentina</li>
                   </ul>
                 </div>
               </div>
-              <div className="border-t border-gray-200 mt-12 pt-8 text-sm text-center">
+              <div className="border-t border-gray-200 mt-12 pt-8 text-sm text-center" style={{ color: colors.textGray }}>
                 © 2024 Dinamo. Todos los derechos reservados.
               </div>
             </div>
