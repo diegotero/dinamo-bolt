@@ -14,14 +14,15 @@ import React from 'react';
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
-                <h3
-                  className="text-xl font-bold mb-4"
-                  style={{ color: colors.prussianBlue }}
-                >
-                  Dinamo
-                </h3>
+                <img
+                  src="https://vrrohcaovubbp0uw.public.blob.vercel-storage.com/logo-dinamo-svg%20(2)-UCUnpFdHBqymvYij2yJ7e8Mus3cUXT.svg"
+                  alt="Dinamo Logo"
+                  className="h-12 mb-4"
+                />
                 <p className="text-sm" style={{ color: colors.textGray }}>
-                  Transformando empresas desde 2008
+                  Ayudamos a las PyMEs a profesionalizarse y crecer mediante
+                  consultoría estratégica, selección de talento y capacitación
+                  efectiva.
                 </p>
               </div>
               <div>
@@ -38,7 +39,7 @@ import React from 'react';
                       className="hover:text-[#007ea7] transition"
                       style={{ color: colors.cerulean }}
                     >
-                      Consultoría
+                      Consultoría Estratégica para PyMEs
                     </a>
                   </li>
                   <li>
@@ -47,7 +48,7 @@ import React from 'react';
                       className="hover:text-[#007ea7] transition"
                       style={{ color: colors.cerulean }}
                     >
-                      Capacitación
+                      Desarrollo de Talento para Empresas
                     </a>
                   </li>
                   <li>
@@ -56,7 +57,7 @@ import React from 'react';
                       className="hover:text-[#007ea7] transition"
                       style={{ color: colors.cerulean }}
                     >
-                      Selección
+                      Selección de Personal Especializado
                     </a>
                   </li>
                 </ul>
@@ -107,13 +108,14 @@ import React from 'react';
                 </h4>
                 <ul className="space-y-2 text-sm" style={{ color: colors.textGray }}>
                   <li>info@dinamo.net.ar</li>
-                  <li>+54 11 1234-5678</li>
-                  <li>Buenos Aires, Argentina</li>
+                  <li>+54 351 6763950</li>
+                  <li>Saturnino Navarro 4274</li>
+                  <li>Córdoba, Argentina</li>
                 </ul>
               </div>
             </div>
             <div className="border-t border-gray-200 mt-12 pt-8 text-sm text-center" style={{ color: colors.textGray }}>
-              © 2024 Dinamo. Todos los derechos reservados.
+              © 2025 Dinamo. Todos los derechos reservados.
             </div>
           </div>
         </footer>
