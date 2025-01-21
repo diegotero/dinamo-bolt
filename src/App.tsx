@@ -32,7 +32,7 @@ import React, { useState, useRef } from 'react';
     const clientLogos = [
       {
         name: 'Google',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png',
+        logo: 'https://es.wikipedia.org/wiki/Archivo:Google_2015_logo.svg',
       },
       {
         name: 'Amazon',
@@ -62,21 +62,21 @@ import React, { useState, useRef } from 'react';
 
     const cardData = [
       {
-        title: 'Gestión del tiempo',
+        title: 'Gestión del Tiempo',
         icon: <Clock className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿La operatoria diaria consume todo tu tiempo?',
         description:
           'Optimizamos tu agenda para que te enfoques en lo estratégico, delegando tareas operativas.',
       },
       {
-        title: 'Procesos empresariales',
+        title: 'Procesos Empresariales',
         icon: <Settings className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Tus procesos carecen de claridad?',
         description:
           'Definimos y documentamos tus procesos para que sean eficientes y escalables.',
       },
       {
-        title: 'Análisis de resultados',
+        title: 'Análisis de Resultados',
         icon: (
           <TrendingDown className="w-6 h-6" style={{ color: colors.cerulean }} />
         ),
@@ -85,35 +85,35 @@ import React, { useState, useRef } from 'react';
           'Implementamos tableros de control para que tomes decisiones basadas en datos.',
       },
       {
-        title: 'Toma de decisiones',
+        title: 'Toma de Decisiones',
         icon: <Brain className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Te sentís solo al momento de decidir?',
         description:
           'Te acompañamos en el proceso de toma de decisiones para que elijas el mejor camino.',
       },
       {
-        title: 'Innovación empresarial',
+        title: 'Innovación Empresarial',
         icon: <Diamond className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Tu empresa necesita renovarse?',
         description:
           'Te ayudamos a identificar oportunidades de innovación para que tu empresa se destaque.',
       },
       {
-        title: 'Desarrollo comercial',
+        title: 'Desarrollo Comercial',
         icon: <DollarSign className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Necesitás incrementar tus ventas?',
         description:
           'Diseñamos estrategias comerciales efectivas para que aumentes tus ingresos.',
       },
       {
-        title: 'Gestión de equipos',
+        title: 'Gestión de Equipos',
         icon: <Users className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Buscás un equipo más comprometido?',
         description:
           'Desarrollamos líderes y equipos de alto rendimiento para que alcances tus objetivos.',
       },
       {
-        title: 'Implementación de ideas',
+        title: 'Implementación de Ideas',
         icon: (
           <Lightbulb className="w-6 h-6" style={{ color: colors.cerulean }} />
         ),
@@ -126,21 +126,21 @@ import React, { useState, useRef } from 'react';
     const serviceCards = [
       {
         icon: <Puzzle className="text-[#2563eb] w-8 h-8" />,
-        title: 'Consultoría estratégica',
+        title: 'Consultoría Estratégica',
         description:
           'Optimizamos procesos y profesionalizamos la estructura de tu empresa familiar. Acompañamiento personalizado para la toma de decisiones y planificación estratégica.',
         buttonText: 'Conoce más',
       },
       {
         icon: <Users className="text-[#2563eb] w-8 h-8" />,
-        title: 'Desarrollo de talento',
+        title: 'Desarrollo de Talento',
         description:
           'Formación especializada para mandos medios y personal clave. Programas de liderazgo y gestión de equipos diseñados para PyMEs en crecimiento.',
         buttonText: 'Conoce más',
       },
       {
         icon: <UserPlus className="text-[#2563eb] w-8 h-8" />,
-        title: 'Selección de personal',
+        title: 'Selección de Personal',
         description:
           'Encontramos el talento especializado que tu PyME necesita. Reclutamiento enfocado en perfiles clave y evaluación por competencias.',
         buttonText: 'Conoce más',
@@ -506,11 +506,16 @@ import React, { useState, useRef } from 'react';
                   ref={swiperRef}
                   modules={[Navigation]}
                   spaceBetween={50}
-                  slidesPerView={1}
+                  slidesPerView={1.5}
                   loop={false}
                   navigation={{
                     prevEl: '.swiper-button-prev',
                     nextEl: '.swiper-button-next',
+                  }}
+                  breakpoints={{
+                    768: {
+                      slidesPerView: 3.5,
+                    },
                   }}
                   className="relative"
                 >
