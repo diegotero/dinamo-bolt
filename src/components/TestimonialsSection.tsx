@@ -51,10 +51,10 @@ import React, { useState, useRef, useEffect } from 'react';
       };
 
       return (
-        <section className="container mx-auto px-6 py-20 bg-white rounded-3xl my-20">
-          <div className="max-w-6xl mx-auto">
+        <section className="container mx-auto py-20 bg-white rounded-3xl my-20">
+          <div className="max-w-6xl mx-auto px-4">
             <h2
-              className="text-4xl font-bold mb-16 text-center"
+              className="text-3xl md:text-4xl font-bold mb-16 text-center"
               style={{ color: colors.prussianBlue }}
             >
               Lo que opinan los clientes sobre nuestros servicios
@@ -63,20 +63,29 @@ import React, { useState, useRef, useEffect } from 'react';
               <Swiper
                 ref={swiperRef}
                 modules={[Navigation]}
-                spaceBetween={50}
-                slidesPerView={1.5}
+                spaceBetween={30}
+                slidesPerView={1.2}
                 loop={false}
                 navigation={false}
                 breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                  },
                   768: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 40,
+                  },
+                  1024: {
                     slidesPerView: 3.5,
+                    spaceBetween: 50,
                   },
                 }}
                 className="relative"
               >
                 {testimonials.map((testimonial, index) => (
                   <SwiperSlide key={index}>
-                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 mx-4 first:ml-0 last:mr-0">
+                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 mx-2 first:ml-0 last:mr-0">
                       <div className="flex items-center mb-4">
                         <img
                           src={testimonial.image}

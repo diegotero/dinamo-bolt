@@ -17,16 +17,16 @@ import React from 'react';
 
     const MissionStatement: React.FC<MissionStatementProps> = ({ cardData, colors }) => {
       return (
-        <section className="container mx-auto px-6 py-16 text-center">
-          <div className="max-w-4xl mx-auto">
+        <section className="container mx-auto py-16 text-center">
+          <div className="max-w-4xl mx-auto px-4">
             <h2
-              className="text-3xl md:text-4xl font-bold mb-8"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8"
               style={{ color: colors.prussianBlue }}
             >
               Trabajamos codo a codo con nuestros clientes «socios
               estratégicos»
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed" style={{ color: colors.textGray }}>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed" style={{ color: colors.textGray }}>
               Buscando soluciones a medida en el desarrollo integral de sus
               negocios
             </p>
@@ -39,7 +39,7 @@ import React from 'react';
                   <div className="absolute top-4 right-4">
                     {card.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2" style={{ color: colors.textGray }}>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2" style={{ color: colors.textGray }}>
                     {card.title}
                   </h3>
                   <p className="text-gray-700 mb-2 italic" style={{ color: colors.textGray }}>

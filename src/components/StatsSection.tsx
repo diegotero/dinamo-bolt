@@ -10,17 +10,17 @@ import React from 'react';
 
     const StatsSection: React.FC<StatsSectionProps> = ({ colors }) => {
       return (
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto py-16">
           <h2
-            className="text-2xl mb-12 text-center"
+            className="text-xl md:text-2xl mb-12 text-center px-4"
             style={{ color: colors.prussianBlue }}
           >
             Contribuimos en el desarrollo de las PyMEs
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div
-                className="text-4xl font-bold mb-2"
+                className="text-3xl md:text-4xl font-bold mb-2"
                 style={{ color: colors.cerulean }}
               >
                 +15
@@ -29,7 +29,7 @@ import React from 'react';
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div
-                className="text-4xl font-bold mb-2"
+                className="text-3xl md:text-4xl font-bold mb-2"
                 style={{ color: colors.cerulean }}
               >
                 +80
@@ -38,7 +38,7 @@ import React from 'react';
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div
-                className="text-4xl font-bold mb-2"
+                className="text-3xl md:text-4xl font-bold mb-2"
                 style={{ color: colors.cerulean }}
               >
                 +600

@@ -17,8 +17,8 @@ import React from 'react';
       return (
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={50}
-          slidesPerView={5}
+          spaceBetween={30}
+          slidesPerView={2}
           loop={true}
           autoplay={{
             delay: 3000,
@@ -26,9 +26,18 @@ import React from 'react';
           }}
           className="relative"
           breakpoints={{
-            320: { slidesPerView: 2, spaceBetween: 20 },
-            640: { slidesPerView: 3, spaceBetween: 30 },
-            1024: { slidesPerView: 5, spaceBetween: 50 },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 50,
+            },
           }}
         >
           {logos.map((client, index) => (
