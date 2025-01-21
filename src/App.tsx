@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
     import {
       ArrowRight,
       Users,
@@ -12,11 +12,14 @@ import React, { useState } from 'react';
       Puzzle,
       UserPlus,
       ChevronDown,
+      ChevronLeft,
+      ChevronRight,
     } from 'lucide-react';
     import { Swiper, SwiperSlide } from 'swiper/react';
-    import { Autoplay } from 'swiper/modules';
+    import { Autoplay, Navigation } from 'swiper/modules';
     import 'swiper/css';
     import 'swiper/css/autoplay';
+    import 'swiper/css/navigation';
 
     const colors = {
       white: '#ffffffff',
@@ -59,21 +62,21 @@ import React, { useState } from 'react';
 
     const cardData = [
       {
-        title: 'Gestión del Tiempo',
+        title: 'Gestión del tiempo',
         icon: <Clock className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿La operatoria diaria consume todo tu tiempo?',
         description:
           'Optimizamos tu agenda para que te enfoques en lo estratégico, delegando tareas operativas.',
       },
       {
-        title: 'Procesos Empresariales',
+        title: 'Procesos empresariales',
         icon: <Settings className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Tus procesos carecen de claridad?',
         description:
           'Definimos y documentamos tus procesos para que sean eficientes y escalables.',
       },
       {
-        title: 'Análisis de Resultados',
+        title: 'Análisis de resultados',
         icon: (
           <TrendingDown className="w-6 h-6" style={{ color: colors.cerulean }} />
         ),
@@ -82,35 +85,35 @@ import React, { useState } from 'react';
           'Implementamos tableros de control para que tomes decisiones basadas en datos.',
       },
       {
-        title: 'Toma de Decisiones',
+        title: 'Toma de decisiones',
         icon: <Brain className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Te sentís solo al momento de decidir?',
         description:
           'Te acompañamos en el proceso de toma de decisiones para que elijas el mejor camino.',
       },
       {
-        title: 'Innovación Empresarial',
+        title: 'Innovación empresarial',
         icon: <Diamond className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Tu empresa necesita renovarse?',
         description:
           'Te ayudamos a identificar oportunidades de innovación para que tu empresa se destaque.',
       },
       {
-        title: 'Desarrollo Comercial',
+        title: 'Desarrollo comercial',
         icon: <DollarSign className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Necesitás incrementar tus ventas?',
         description:
           'Diseñamos estrategias comerciales efectivas para que aumentes tus ingresos.',
       },
       {
-        title: 'Gestión de Equipos',
+        title: 'Gestión de equipos',
         icon: <Users className="w-6 h-6" style={{ color: colors.cerulean }} />,
         question: '¿Buscás un equipo más comprometido?',
         description:
           'Desarrollamos líderes y equipos de alto rendimiento para que alcances tus objetivos.',
       },
       {
-        title: 'Implementación de Ideas',
+        title: 'Implementación de ideas',
         icon: (
           <Lightbulb className="w-6 h-6" style={{ color: colors.cerulean }} />
         ),
@@ -123,21 +126,21 @@ import React, { useState } from 'react';
     const serviceCards = [
       {
         icon: <Puzzle className="text-[#2563eb] w-8 h-8" />,
-        title: 'Consultoría Estratégica',
+        title: 'Consultoría estratégica',
         description:
           'Optimizamos procesos y profesionalizamos la estructura de tu empresa familiar. Acompañamiento personalizado para la toma de decisiones y planificación estratégica.',
         buttonText: 'Conoce más',
       },
       {
         icon: <Users className="text-[#2563eb] w-8 h-8" />,
-        title: 'Desarrollo de Talento',
+        title: 'Desarrollo de talento',
         description:
           'Formación especializada para mandos medios y personal clave. Programas de liderazgo y gestión de equipos diseñados para PyMEs en crecimiento.',
         buttonText: 'Conoce más',
       },
       {
         icon: <UserPlus className="text-[#2563eb] w-8 h-8" />,
-        title: 'Selección de Personal',
+        title: 'Selección de personal',
         description:
           'Encontramos el talento especializado que tu PyME necesita. Reclutamiento enfocado en perfiles clave y evaluación por competencias.',
         buttonText: 'Conoce más',
@@ -237,9 +240,22 @@ import React, { useState } from 'react';
 
     function App() {
       const [openItem, setOpenItem] = useState<number | null>(null);
+      const swiperRef = useRef<any>(null);
 
       const toggleItem = (index: number) => {
         setOpenItem((prevOpenItem) => (prevOpenItem === index ? null : index));
+      };
+
+      const handlePrev = () => {
+        if (swiperRef.current) {
+          swiperRef.current.swiper.slidePrev();
+        }
+      };
+
+      const handleNext = () => {
+        if (swiperRef.current) {
+          swiperRef.current.swiper.slideNext();
+        }
       };
 
       return (
@@ -415,6 +431,25 @@ import React, { useState } from 'react';
                 Buscando soluciones a medida en el desarrollo integral de sus
                 negocios
               </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                {cardData.map((card, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 relative"
+                  >
+                    <div className="absolute top-4 right-4">
+                      {card.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-700 mb-2 italic">
+                      {card.question}
+                    </p>
+                    <p className="text-gray-600">{card.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -466,33 +501,73 @@ import React, { useState } from 'react';
               >
                 Lo que opinan los clientes sobre nuestros servicios
               </h2>
-              <div className="overflow-x-auto whitespace-nowrap py-4">
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="inline-block bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 mx-4 first:ml-0 last:mr-0 w-[300px]"
-                  >
-                    <div className="flex items-center mb-4">
-                      <img
-                        src={testimonial.image}
-                        alt="Cliente"
-                        className="w-12 h-12 rounded-full object-cover mr-4"
-                      />
-                      <div>
-                        <h3
-                          className="font-bold"
-                          style={{ color: colors.prussianBlue }}
-                        >
-                          {testimonial.name}
-                        </h3>
-                        <p className="text-gray-600">{testimonial.role}</p>
+              <div className="relative">
+                <Swiper
+                  ref={swiperRef}
+                  modules={[Navigation]}
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  loop={false}
+                  navigation={{
+                    prevEl: '.swiper-button-prev',
+                    nextEl: '.swiper-button-next',
+                  }}
+                  className="relative"
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 mx-4 first:ml-0 last:mr-0">
+                        <div className="flex items-center mb-4">
+                          <img
+                            src={testimonial.image}
+                            alt="Cliente"
+                            className="w-12 h-12 rounded-full object-cover mr-4"
+                          />
+                          <div>
+                            <h3
+                              className="font-bold"
+                              style={{ color: colors.prussianBlue }}
+                            >
+                              {testimonial.name}
+                            </h3>
+                            <p className="text-gray-600">{testimonial.role}</p>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 leading-relaxed">
+                          {testimonial.comment}
+                        </p>
                       </div>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                      {testimonial.comment}
-                    </p>
-                  </div>
-                ))}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <div className="absolute top-1/2 -translate-y-1/2 left-4 z-10">
+                  <button
+                    className="swiper-button-prev"
+                    onClick={handlePrev}
+                    style={{
+                      display: swiperRef.current?.swiper.isBeginning ? 'none' : 'block',
+                    }}
+                  >
+                    <ChevronLeft
+                      className="w-8 h-8"
+                      style={{ color: colors.cerulean }}
+                    />
+                  </button>
+                </div>
+                <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10">
+                  <button
+                    className="swiper-button-next"
+                    onClick={handleNext}
+                    style={{
+                      display: swiperRef.current?.swiper.isEnd ? 'none' : 'block',
+                    }}
+                  >
+                    <ChevronRight
+                      className="w-8 h-8"
+                      style={{ color: colors.cerulean }}
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </section>
@@ -518,7 +593,8 @@ import React, { useState } from 'react';
                       className="flex items-center justify-between w-full py-4 px-6 text-left text-gray-800 font-semibold hover:bg-gray-100 transition-colors duration-200"
                       onClick={() => toggleItem(index)}
                       style={{
-                        backgroundColor: openItem === index ? colors.white : 'transparent',
+                        backgroundColor:
+                          openItem === index ? colors.white : 'transparent',
                       }}
                     >
                       <span className="text-gray-700">{item.question}</span>
@@ -526,7 +602,8 @@ import React, { useState } from 'react';
                         className={`w-5 h-5 transition-transform duration-200`}
                         style={{
                           color: colors.cerulean,
-                          transform: openItem === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transform:
+                            openItem === index ? 'rotate(180deg)' : 'rotate(0deg)',
                         }}
                       />
                     </button>
